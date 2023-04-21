@@ -48,6 +48,10 @@ export const chartOptions = (fund: Fund): any => {
       name: '3 months',
       data: [fund.change3m]
     }, {
+      name: '1 year',
+      data: [fund.change1y]
+    },
+    {
       name: '3 years',
       data: [fund.change3y]
     }]
