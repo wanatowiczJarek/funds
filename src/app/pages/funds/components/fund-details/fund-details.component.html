@@ -1,0 +1,41 @@
+<div class='container'>
+  <h3>FUND DETAILS</h3>
+  <div class='list'>
+    <div *ngFor='let key of fundPropKeys'>
+      <div [ngSwitch]="key">
+        <p *ngSwitchCase="'redemptionMinFee'">
+          <label><b>{{formatLabel(key)}}</b>: </label>
+          {{fund[key].amount}} {{fund.currency}}
+        </p>
+        <p *ngSwitchCase="'subscriptionMinFee'">
+          <label><b>{{formatLabel(key)}}</b>: </label>
+          {{fund[key].amount}} {{fund.currency}}
+        </p>
+        <p *ngSwitchCase="'subscriptionMinValue'">
+          <label><b>{{formatLabel(key)}}</b>: </label>
+          {{fund[key].amount}} {{fund.currency}}
+        </p>
+        <p *ngSwitchCase="'documents'">
+          <label><b>{{formatLabel(key)}}</b>: </label>
+          <ng-container *ngIf='fund[key].length'>
+            <span *ngFor='let document of fund[key]'>
+              <a *ngIf="document.url" href={{document.url}} target='_blank'>{{document.title}}</a>
+              <span *ngIf="!document.url">{{document.title}}</span> &nbsp;
+            </span>
+          </ng-container>
+          <ng-container *ngIf='!fund[key].length'>N/A</ng-container>
+        </p>
+        <p *ngSwitchCase="'permissions'">
+          <label><b>{{formatLabel(key)}}</b>: </label>
+          <span *ngFor="let permission of fund[key] | keyvalue">
+            <span [ngClass]="{'green': permission.value, 'red': !permission.value}">{{permission.key}}</span>&nbsp;
+          </span>
+        </p>
+        <p *ngSwitchDefault>
+          <label><b>{{formatLabel(key)}}</b>: </label>
+          <span>{{fund[key] || 'N/A'}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

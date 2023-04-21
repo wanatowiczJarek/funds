@@ -1,0 +1,26 @@
+.container {
+  border-bottom: 1px dashed grey;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+p {
+  margin: 3px 20px;
+}

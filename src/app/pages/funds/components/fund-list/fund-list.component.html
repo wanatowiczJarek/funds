@@ -1,0 +1,5 @@
+<div *ngIf="fundList$ | async as fundList">
+  <div *ngFor='let fund of fundList; let i = index'>
+    <div [id]="'chart-' + i"></div>
+    <app-fund-details [fundInit]="fund"></app-fund-details>
+  </div>
